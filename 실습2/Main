@@ -1,0 +1,47 @@
+package com.example.test;
+
+import android.graphics.Color;
+import android.nfc.Tag;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button button_q;
+    TextView textView_display;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        button_q =findViewById(R.id.button_Q);
+
+        textView_display=findViewById(R.id.textview_display);
+        button_q.setOnClickListener(this);
+
+
+
+    }
+    @Override
+    public void onClick(View v){
+        if(v==button_q){
+            textView_display.setText("정답:서울");
+
+        }
+    }
+}
