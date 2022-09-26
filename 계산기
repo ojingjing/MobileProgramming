@@ -1,0 +1,125 @@
+package com.example.test;
+
+import android.graphics.Color;
+import android.nfc.Tag;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
+
+import java.util.Random;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    EditText editText_num1 ,editText_num2 ;
+    Button button_add,button_sub;
+    TextView textView_display;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        editText_num1=findViewById(R.id.edittext_num1);
+        editText_num2=findViewById(R.id.edittext_num2);
+        button_add =findViewById(R.id.button_add);
+        button_sub=findViewById(R.id.button_sub);
+        textView_display=findViewById(R.id.textview_display);
+        button_add.setOnClickListener(this);
+        button_sub.setOnClickListener(this);
+
+
+    }
+    @Override
+    public void onClick(View v){
+        double n1= Double.parseDouble(editText_num1.getText().toString());
+        double n2= Double.parseDouble(editText_num2.getText().toString());
+
+        switch (v.getId()){
+            case R.id.button_add:
+                textView_display.setText(n1+n2+"");
+                break;
+            case R.id.button_sub:
+                textView_display.setText(n1-n2+"");
+                break;
+        }
+    }
+}
+
+
+<?xml version="1.0" encoding="utf-8" ?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="center_horizontal">
+
+    <EditText
+        android:id="@+id/edittext_num1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="첫번째 수를 입력하세요"
+        />
+    <EditText
+        android:id="@+id/edittext_num2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="두번째 수를 입력하세요"
+        />
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="덧셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/button_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="뺄셈"
+            android:textSize="30sp"
+            android:layout_margin="10dp"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textview_display"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:layout_margin="10dp"
+        android:hint="여기에 계산 결과 표시됨"
+        />
+
+</LinearLayout>
