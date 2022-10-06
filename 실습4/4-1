@@ -1,0 +1,101 @@
+package com.example.myapplication05;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        RadioButton radioq =findViewById(R.id.raido1);
+        RadioButton radiow =findViewById(R.id.raido2);
+        RadioButton radioe =findViewById(R.id.raido3);
+        RadioButton radior =findViewById(R.id.raido4);
+        Button bt = findViewById(R.id.button);
+        bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String s="";
+                if(radioq.isChecked()) s=radiow.getText().toString();
+                if(radioq.isChecked()) s=radiow.getText().toString();
+                if(radioq.isChecked()) s=radiow.getText().toString();
+                if(radioq.isChecked()) s=radiow.getText().toString();
+                Toast.makeText(getApplicationContext(), "연료유형"+s,Toast.LENGTH_SHORT).show();
+            }
+        });
+
+}
+
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:padding="20dp"
+    android:gravity="center_horizontal">
+    <TextView
+
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/edittext" android:hint="연료 유형 선택"
+        />
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:id="@+id/raido1"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:textSize="20sp"
+            android:checked="true"
+            android:text="가솔린"/>
+    <RadioButton
+        android:id="@+id/raido2"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="20sp"
+        android:text="연료"/>
+    <RadioButton
+        android:id="@+id/raido3"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="20sp"
+        android:text="전기"/>
+    <RadioButton
+        android:id="@+id/raido4"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:textSize="20sp"
+        android:text="기타"/>
+</RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="제출"
+        android:textSize="20sp"/>
+
+</LinearLayout>
