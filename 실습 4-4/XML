@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="20dp"
+    >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="진료신청"
+        android:textSize="20sp"
+        android:padding="20dp"
+
+        />
+    <EditText
+        android:id="@+id/Edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="이름"
+        />
+    <Spinner
+        android:id="@+id/Spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.Spinner.Underlined"
+        android:layout_gravity="left"/>
+
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        >
+    <RadioButton
+        android:id="@+id/radiobutton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한국인"
+        />
+    <RadioButton
+        android:id="@+id/radiobutton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="외국인"
+        />
+    </RadioGroup>
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="하루 30분 이상 걷습니다."/>
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="하루 6시간 이상 수면을 취합니다."/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신청 내역 확인"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
