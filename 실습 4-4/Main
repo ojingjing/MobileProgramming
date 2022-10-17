@@ -1,0 +1,58 @@
+package com.example.jj12;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Button button=findViewById(R.id.button);
+        CheckBox checkBox1=findViewById(R.id.checkbox1);
+        CheckBox checkBox2=findViewById(R.id.checkbox2);
+        EditText editText=findViewById(R.id.Edittext);
+        TextView textView=findViewById(R.id.textview);
+        Spinner spinner=findViewById(R.id.Spinner);
+        RadioButton radioButton1=findViewById(R.id.radiobutton1);
+        RadioButton radioButton2=findViewById(R.id.radiobutton2);
+
+        radioButton1.setChecked(true);
+
+        String region[]={"(거주지) 서울","(거주지) 부산","(거주지) 그 외지역"};
+        ArrayAdapter adapter=new ArrayAdapter(this, android.R.layout.simple_spinner_item,region);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); //글자 간격 넓혀줌
+        spinner.setAdapter(adapter);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String s="이름:"+editText.getText().toString();
+                s+="\n지역:"+spinner.getSelectedItem().toString();
+                s+="\n국적"+(radioButton1.isChecked()? "한국인":"외국인");
+                if(checkBox1.isChecked()) s+="\n"+checkBox1.getText();
+                if(checkBox2.isChecked()) s+="\n"+checkBox2.getText();
+                textView.setText(s);
+
+            }
+        });
+
+    }
+
+}
